@@ -1,103 +1,103 @@
-import Image from "next/image";
+"use client";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    document.title = "Samuel de Souza | Desenvolvedor";
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+  return (
+
+    <main className="min-h-screen text-white font-roboto" style={{ backgroundColor: '#0a0a0a' }}>
+
+      <header className="fixed top-0 w-full bg-[#0f0f0f] text-white shadow z-50">
+        <nav className="max-w-4xl mx-auto flex justify-between items-center px-6 py-4">
+          <a href="#inicio" className="flex items-center gap-2 font-bold text-xl">
+            <img src="/logo.png" alt="Logo Samuel de Souza" className="w-8 h-8" />
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <ul className="flex gap-6 text-sm md:text-base">
+            <li><a href="#sobre" className="hover:underline">Sobre</a></li>
+            <li><a href="#projetos" className="hover:underline">Projetos</a></li>
+            <li><a href="#links" className="hover:underline">Links</a></li>
+            <li><a href="#contato" className="hover:underline">Contato</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="inicio" className="flex flex-col items-center justify-center h-screen text-center px-6">
+
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-4"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Samuel de Souza
+        </motion.h1>
+
+
+        <motion.p
+          className="text-lg md:text-xl text-neutral-300 mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          Engenheiro de Software apaixonado por tecnologia, desenvolvimento web, mobile e software.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+        </motion.div>
+
+      </section>
+
+      {/* Sobre Mim */}
+      <section id="sobre" className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-semibold mb-10 text-center md:text-left">Sobre mim</h2>
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+          <div className="md:w-2/3 text-neutral-300 text-lg">
+            <p>
+              Sou formado em Engenharia de Software e desenvolvi diversos projetos nas áreas de backend, frontend, mobile e dados.
+              Gosto de criar soluções completas e intuitivas, e estou sempre aprendendo e me atualizando com novas tecnologias.
+            </p>
+          </div>
+          <motion.img
+            src="/perfil.jpg"
+            alt="Foto de Samuel de Souza"
+            className="w-40 h-40 box-full object-cover border-3 border-white shadow-md"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+
+      {/* Links Importantes */}
+      <section id="links" className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-semibold mb-4">Links Importantes</h2>
+        <p className="text-neutral-400">
+          Em breve vou adcionar links imoprantes.
+        </p>
+      </section>
+
+      {/* Projetos*/}
+      <section id="projetos" className="max-w-4xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-semibold mb-4">Projetos</h2>
+        <p className="text-neutral-400">Em breve vou adicionar aqui alguns dos projetos que desenvolvi.</p>
+      </section>
+
+      {/* Contato */}
+      <section id="contato" className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <h2 className="text-3xl font-semibold mb-4">Quer Falar Comigo?</h2>
+        <p className="text-neutral-300 mb-6">Me envie um e-mail para: <a href="mailto:samueldesouza200512@gmail.com" className="underline text-blue-400">samueldesouza200512@gmail.com</a></p>
+        <p className="text-neutral-300 mb-6">Me envie uma mensagem: <a href="https://wa.me/5547996607262" className="underline text-blue-400">Whatsapp</a></p>
+      </section>
+    </main>
   );
 }
